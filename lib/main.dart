@@ -113,7 +113,7 @@ final demos = [
   ),
   Demo(
     name: 'Search title',
-    route: 'searchtitle1',
+    route: 'searchtitle',
     builder: (context) => const SearchTitleWidgetsDemo(),
   ),
   Demo(

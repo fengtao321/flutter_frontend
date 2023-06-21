@@ -33,28 +33,38 @@ class _ListWidgetsDemoState extends State<ListWidgetsDemo> {
         future: getDocumentList(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.hasData) {
-            return Material(
-              child: ListView.builder(
-                // Let the ListView know how many items it needs to build.
-                itemCount: snapshot.data.length,
-                // Provide a builder function. This is where the magic happens.
-                // Convert each item into a widget based on the type of item it is.
-                itemBuilder: (context, index) {
-                  final item = Document.fromJson(snapshot.data[index]);
-
-                  return Center(
-                    widthFactor: 300,
-                    // color: Colors.blue,
-                    child: ListTile(
-                      leading: Icon(Icons.account_circle),
-                      title: item.buildTitle(context),
-                      subtitle: item.buildAuthor(context),
-                      trailing: Icon(Icons.arrow_forward),
+            return MaterialApp(
+                title: 'Elasticsearch Demo',
+                home: Scaffold(
+                    appBar: AppBar(
+                      title: const Text('List All the Documents'),
                     ),
-                  );
-                },
-              ),
-            );
+                    body: Align(
+                        alignment: FractionalOffset.center,
+                        child: Container(
+                          width: 600,
+                          child: ListView.builder(
+                            // Let the ListView know how many items it needs to build.
+                            itemCount: snapshot.data.length,
+                            // Provide a builder function. This is where the magic happens.
+                            // Convert each item into a widget based on the type of item it is.
+                            itemBuilder: (context, index) {
+                              final item =
+                                  Document.fromJson(snapshot.data[index]);
+
+                              return Center(
+                                widthFactor: 300,
+                                // color: Colors.blue,
+                                child: ListTile(
+                                  leading: Icon(Icons.account_circle),
+                                  title: item.buildTitle(context),
+                                  subtitle: item.buildAuthor(context),
+                                  trailing: Icon(Icons.arrow_forward),
+                                ),
+                              );
+                            },
+                          ),
+                        ))));
           } else if (snapshot.hasError) {
             print('ERROR');
           }

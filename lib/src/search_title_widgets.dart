@@ -30,7 +30,7 @@ class _SearchTitleWidgetsDemo extends State<SearchTitleWidgetsDemo> {
       title: 'Elasticsearch Demo',
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('Search'),
+            title: const Text('Search Title and Author'),
           ),
           body: Align(
             alignment: FractionalOffset.center,
