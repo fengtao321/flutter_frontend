@@ -38,4 +38,8 @@ class Document {
       date.toString(),
     );
   }
+
+  bool isEmpty() {
+    return title == null;
+  }
 }

@@ -8,6 +8,7 @@ import 'dart:io';
 
 import 'src/form_widgets.dart';
 import 'src/list_widgets.dart';
+import 'src/search_title_widgets.dart';
 import 'src/search_widgets.dart';
 
 Future main() async {
@@ -110,14 +111,14 @@ final demos = [
     route: 'list',
     builder: (context) => const ListWidgetsDemo(),
   ),
-  // Demo(
-  //   name: 'Search title',
-  //   route: 'list',
-  //   builder: (context) => const SearchTitleWidgetsDemo(),
-  // ),
+  Demo(
+    name: 'Search title',
+    route: 'searchtitle1',
+    builder: (context) => const SearchTitleWidgetsDemo(),
+  ),
   Demo(
     name: 'Search Document',
-    route: 'search',
+    route: 'searchdoc',
     builder: (context) => const SearchWidgetsDemo(),
   ),
 ];
