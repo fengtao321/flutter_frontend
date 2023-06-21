@@ -2,13 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:window_size/window_size.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import 'src/form_widgets.dart';
 import 'dart:io';
 
+import 'src/form_widgets.dart';
 import 'src/list_widgets.dart';
+import 'src/search_widgets.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: "../.env");
   setupWindow();
   runApp(const FormApp());
 }
@@ -106,6 +109,16 @@ final demos = [
     name: 'List document',
     route: 'list',
     builder: (context) => const ListWidgetsDemo(),
+  ),
+  // Demo(
+  //   name: 'Search title',
+  //   route: 'list',
+  //   builder: (context) => const SearchTitleWidgetsDemo(),
+  // ),
+  Demo(
+    name: 'Search Document',
+    route: 'search',
+    builder: (context) => const SearchWidgetsDemo(),
   ),
 ];
 

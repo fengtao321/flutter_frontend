@@ -18,15 +18,6 @@ class ListWidgetsDemo extends StatefulWidget {
 }
 
 class _ListWidgetsDemoState extends State<ListWidgetsDemo> {
-  late Future<dynamic> _documentList;
-
-  @override
-  void initState() {
-    super.initState();
-    _documentList = getDocumentList();
-  }
-  // ignore: prefer_function_declarations_over_variables
-
   Future<dynamic> getDocumentList() async {
     // do something here
     var url = Uri.http('localhost:18080', '/v1/doc');
